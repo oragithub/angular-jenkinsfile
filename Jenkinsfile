@@ -6,9 +6,10 @@ pipeline {
     stages{
     stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
+         steps{
         deleteDir()
         checkout scm
-
+         }
         //enable for commit id in build number
         //env.git_commit_id = sh returnStdout: true, script: 'git rev-parse HEAD'
         //env.git_commit_id_short = env.git_commit_id.take(7)
@@ -17,23 +18,29 @@ pipeline {
 
     stage('NPM Install') {
         /*withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {*/
-            sh 'npm install'
+        steps{  sh 'npm install' }
         /*}*/
     }
 
     stage('Build') {
+         steps{
         milestone()
         sh 'ng build --prod --aot --sm --progress=false'
+         }
     }
 
     stage('Archive') {
+         steps{
         sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
         archive 'dist.tar.gz'
+         }
     }
 
     stage('Deploy') {
+         steps{
         milestone()
         echo "Deploying..."
+         }
     }
     }
 }
