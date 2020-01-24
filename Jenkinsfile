@@ -1,8 +1,8 @@
 node {
     agent any
-      environment {
+      /*environment {
          PATH='/usr/local/bin:/usr/bin:/bin'
-      }
+      }*/
     stage('Checkout') {
         //disable to recycle workspace data to save time/bandwidth
         deleteDir()
@@ -15,9 +15,9 @@ node {
     }
 
     stage('NPM Install') {
-        withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
+        /*withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {*/
             sh 'npm install'
-        }
+        /*}*/
     }
 
     stage('Build') {
