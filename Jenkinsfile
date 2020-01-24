@@ -22,6 +22,9 @@ pipeline {
         steps{ 
             sh 'npm install'
             sh 'npm install -g @angular/cli@latest'
+            sh 'ng --version'
+            sh 'npm install --save-dev @angular/cli@latest'
+            sh 'ng --version'
         }
         /*}*/
     }
