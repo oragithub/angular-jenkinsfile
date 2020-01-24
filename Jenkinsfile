@@ -19,7 +19,10 @@ pipeline {
 
     stage('NPM Install') {
         /*withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {*/
-        steps{  sh 'npm install' }
+        steps{ 
+            sh 'npm install'
+            sh 'npm install -g @angular/cli@latest'
+        }
         /*}*/
     }
 
