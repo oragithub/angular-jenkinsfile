@@ -1,4 +1,4 @@
-node {
+pipeline {
     agent any
       /*environment {
          PATH='/usr/local/bin:/usr/bin:/bin'
