@@ -21,11 +21,8 @@ pipeline {
         /*withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {*/
         steps{ 
             sh 'npm install'
-            sh 'npm install -g @angular/cli@latest'
+            sh 'npm install -g @angular/cli@1.0.2'
             sh 'ng --version'
-            sh 'npm install --save-dev @angular/cli@latest'
-            sh 'ng --version'
-            sh 'ng update @angular/cli --migrate-only --from= 8.3.23'
         }
         /*}*/
     }
