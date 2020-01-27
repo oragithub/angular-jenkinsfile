@@ -32,7 +32,7 @@ pipeline {
     stage('Build') {
          steps{
         milestone(20)
-        sh 'ng build --prod --aot --sm --progress=false'
+        sh 'ng build --prod'
          }
     }
 
