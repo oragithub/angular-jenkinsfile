@@ -25,6 +25,7 @@ pipeline {
             sh 'ng --version'
             sh 'npm install --save-dev @angular/cli@latest'
             sh 'ng --version'
+            sh 'ng update @angular/cli --migrate-only --from= 8.3.23'
         }
         /*}*/
     }
